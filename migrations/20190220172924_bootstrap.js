@@ -12,5 +12,5 @@ exports.up = function(knex, Promise) {
 
 // how to undo database changes
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExists("cohorts");
+    return knex.schema.dropTableIfExists("cohorts");
 };
