@@ -21,6 +21,16 @@ route.get('/:id', async (req, res) => {
     }
 })
 
+route.get('/:id/students', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const cohortStudents = await db('cohorts').where({ id :students.cohort_id}).innerJoin('students');
+        res.status(200).json(cohortStudents);
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 route.post('/', async (req, res) => {
     try {
         const [id] = await db('cohorts').insert(req.body);
