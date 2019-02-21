@@ -6,7 +6,7 @@ const cohortRoute = require('./routes/cohortsRoute.js')
 server.use(express.json());
 server.use(helmet());
 
-server.use(cohortRoute);
+server.use('/api/cohorts', cohortRoute);
 
 server.get('/', async (req, res) => {
     try {
