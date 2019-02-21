@@ -14,7 +14,7 @@ route.get('/', async (req, res) => {
 
 route.get('/:id', async (req, res) => {
     try {
-        const cohort = await db('cohorts').where({id: req.params.id}).first('name')
+        const cohort = await db('cohorts').where({id: req.params.id}).first('name');
         res.status(200).json(cohort)
     } catch (error) {
         res.status(500).json(error)
